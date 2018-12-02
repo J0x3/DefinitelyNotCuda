@@ -1,5 +1,6 @@
 # DefinitelyNotCuda
 CUDA Coin Flipper
+<pre>
 ---------------------------------------------
 Device 0: GeForce GTX 1070
   Number of multiprocessors:                     15
@@ -29,11 +30,12 @@ How many multiples of 1024? : 2000
 
 Now THIS is pod racing!
 
-Matches: 36
-Failed : 2047964
+Matches: 33
+Failed : 2047967
 
-Time  (sec)    : 0.176954
-Achieved Ratio : 0.000017578434
+Time  (sec)    : 0.175884
+Achieved Ratio : 0.000016113541
 Probability    : 0.000015258789
-Difference     : 0.000002319645
+Difference     : 0.000000854752
 ---------------------------------------------
+</pre>
