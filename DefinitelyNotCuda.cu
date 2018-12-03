@@ -19,11 +19,11 @@ int main(int argc, char **argv)
 	printf("\tSets of {16} flips\n");
 	printf("Minimum number that will run: 1024\n");
 	printf("How many multiples of 1024? : ");
-	int input = 1;
-	scanf("%d", &input);
+	unsigned long long int input = 1;
+	scanf("%lld", &input);
 	printf("---------------------------------------------\n");
-	printf("--- Flipping [%d] sets of 16 coins ---\n", (input*1024));
-	printf("\t( \"%dM sets\" or \"%dM flips\" )\n", ((input * 1024)/1000000), ((input * 1024 * 16) / 1000000));
+	printf("--- Flipping [%lld] sets of 16 coins ---\n", (input*1024));
+	printf("\t( \"%lldM sets\" or \"%lldM flips\" )\n", ((input * 1024)/1000000), ((input * 1024 * 16) / 1000000));
 	printf("---------------------------------------------\n\n");
 	// -------------------------------------------------------
 	// TIMER
