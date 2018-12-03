@@ -1,3 +1,20 @@
+/*
+ * 	A program that empirically estimates the probability of flipping 16 coins
+ *      and getting the following sequence HHTHTHHHTHHHTHTH. The estimate should
+ *      get better as more coins are flipped.
+ *
+ *	This implementation uses the CUDA random number generator API function
+ * 	which uses the Marsenne Twister algorithm to generate random numbers.
+ *      basic functionality: (Generate numbers -> checks numbers) -> loop
+ *
+ *	TODO: 1) Efficiency. The sets are checked on the host, perhaps it can be
+ *       	 writen as a device kernel to optimize speed and resources...
+ *	      2) Maybe add option to set run time in seconds?
+ *
+ *	Author: Joseph Osborne
+ *	Date:	11/30/2018
+ *
+*/
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -34,7 +51,7 @@ int main(int argc, char **argv)
 	cudaEventRecord(start);
 	// -------------------------------------------------------
 	// HHT HT HHHT HHHT HT H
-  // H = 1
+  	// H = 1
 	// T = 0
 	int succ = 0, fail = 0;
 	const int flips[] = { 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1 };
@@ -43,7 +60,7 @@ int main(int argc, char **argv)
 	// Each output element is a 32-bit unsigned int where all bits are random
 	curandGenerator_t genGPU;
 	curandCreateGenerator(&genGPU, CURAND_RNG_PSEUDO_MTGP32);
-	curandSetPseudoRandomGeneratorSeed(genGPU, clock());
+	curandSetPseudoRandomGeneratorSeed(genGPU, clock()); // CURAND_ORDERING_PSEUDO_BEST vs clock()?
 	// "Hence the most efficient use of MTGP32 is to generate a multiple of 16384 samples."
 	// -------------------------------------------------------
 	const int x = 16, y = 1024, n = x * y; // 16384
