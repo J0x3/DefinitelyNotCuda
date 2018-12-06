@@ -52,8 +52,9 @@ int main(int argc, char *argv[]) {
     cudaDeviceProp p;
     cudaGetDeviceProperties(&p, devNo);
 
-    dim3 grid = {p.maxGridSize[0], p.maxGridSize[1], p.maxGridSize[2]};
-    dim3 block = {p.maxThreadsDim[0], p.maxThreadsDim[1], p.maxThreadsDim[2]};
+    // max grid size 
+    dim3 grid = {p.maxGridSize[0]};
+    dim3 block = {p.maxThreadsDim[0]};
     /****************************************************************************/
     int totalWin, totalLoss;
     curandState *devStates;
